@@ -1,4 +1,4 @@
-# save this as app.py
+# save this as index.py
 from flask import Flask
 
 app = Flask(__name__)
