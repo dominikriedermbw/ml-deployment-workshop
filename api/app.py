@@ -15,7 +15,8 @@ def check_api_key():
 
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return_value = {"answer": "Hello, World!"}
+    return return_value
 
 @app.route("/more")
 def hello_more():

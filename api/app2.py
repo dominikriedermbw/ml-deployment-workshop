@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.before_request
 def check_api_key():
-    request_api_key = request.headers.get("api-key")
+    request_api_key = request.pa.get("api-key")
     if request_api_key != FLASK_API_KEY:
         return Response("Invalid Api Key", 401)
 
