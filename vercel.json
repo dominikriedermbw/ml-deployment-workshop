@@ -4,6 +4,10 @@
     {
       "src": "./api/app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "*.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
