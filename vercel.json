@@ -2,11 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./api/app.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "*.py",
+      "src": "./index.py",
       "use": "@vercel/python"
     }
   ],
@@ -14,17 +10,6 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/app.py"
-    },
-    {
-      "src": "/api", "dest": "/api/app.py"
     }
   ]
 }
