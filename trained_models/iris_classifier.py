@@ -29,4 +29,4 @@ def predict_iris_species(sepal_length, sepal_width, petal_length, petal_width) -
     #result = iris_classifier.predict(to_predict)
     X = np.array([[sepal_length, sepal_width, petal_length, petal_width]], dtype=np.float32)
     result = sess.run(None, {'input': X})
-    return result.tolist()
+    return result[0].tolist()
