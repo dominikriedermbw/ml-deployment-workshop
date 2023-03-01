@@ -1,14 +1,17 @@
 import os.path
 
-import numpy
 from joblib import load
 #import pandas as pd
 import pickle
+import onnxruntime as rt
+import numpy as np
 
 path = os.path.dirname(os.path.abspath(__file__))
 #iris_classifier = load(f"{path}/persisted_models/trained_iris_model.joblib")
-with open(f"{path}/persisted_models/trained_iris_model.pickle", "rb") as file:
-    iris_classifier = pickle.load(file)
+#with open(f"{path}/persisted_models/trained_iris_model.pickle", "rb") as file:
+#    iris_classifier = pickle.load(file)
+
+sess = rt.InferenceSession(f"{path}/persisted_models/trained_iris_model.onnx")
 
 def predict_iris_species(sepal_length, sepal_width, petal_length, petal_width) -> str:
     """to_predict = pd.DataFrame.from_dict(
@@ -23,5 +26,7 @@ def predict_iris_species(sepal_length, sepal_width, petal_length, petal_width) -
         [sepal_length, sepal_width, petal_length, petal_width]
     ]
 
-    result: numpy.ndarray = iris_classifier.predict(to_predict)
+    #result = iris_classifier.predict(to_predict)
+    X = np.array([[sepal_length, sepal_width, petal_length, petal_width]], dtype=np.float32)
+    result = sess.run(None, {'input': X})
     return result.tolist()
