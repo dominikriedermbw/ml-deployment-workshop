@@ -11,7 +11,7 @@
       "memory": 1024,
       "maxDuration": 10
     },
-    "/app2.py": {
+    "app2.py": {
       "memory": 1024,
       "maxDuration": 10
     }
