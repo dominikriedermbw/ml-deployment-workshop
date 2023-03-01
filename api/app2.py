@@ -1,14 +1,14 @@
 # save this as app.py
 import os
 
-from flask import Flask, Response
+from flask import Flask, Response, request
 
 FLASK_API_KEY = os.getenv("FLASK_API_KEY")
 app = Flask(__name__)
 
 
 @app.before_request
-def check_api_key(request):
+def check_api_key():
     request_api_key = request.headers.get("api-key")
     if request_api_key != FLASK_API_KEY:
         return Response("Invalid Api Key", 401)
