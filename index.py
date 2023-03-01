@@ -8,5 +8,5 @@ def hello():
     return "Hello, World!"
 
 @app.route("/more")
-def hello():
+def hello_more():
     return "Hello, World! MORE"
