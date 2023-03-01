@@ -1,7 +1,12 @@
 # save this as app.py
 import os
-
 from flask import Flask, Response, request
+
+import sys
+sys.path.append("..")
+from trained_models import iris_classifier
+
+dir_path = os.path.dirname(os.path.abspath(__file__))
 
 FLASK_API_KEY = os.getenv("FLASK_API_KEY")
 app = Flask(__name__)
@@ -15,9 +20,11 @@ def check_api_key():
 
 @app.route("/")
 def hello():
-    return_value = {"answer": "Hello, World!"}
-    return return_value
+    return {"answer": "Hello, World!"}
 
-@app.route("/more")
-def hello_more():
-    return "Hello, World! MORE"
+@app.route("/predict_iris_species")
+def predict_iris_species():
+    return iris_classifier.predict_iris_species(**request.json)
+
+if __name__ == "__main__":
+    app.run(host="localhost", port=8080)
