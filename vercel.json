@@ -5,19 +5,11 @@
       "src": "/(.*)",
       "dest": "/api/app"
     },
-    {
-      "src": "/app2",
-      "dest": "/api/app2"
-    }
   ],
   "functions": {
     "api/app.py": {
       "memory": 1024,
       "maxDuration": 10
     },
-    "api/app2.py": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
   }
 }
