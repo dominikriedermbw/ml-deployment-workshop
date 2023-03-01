@@ -4,7 +4,7 @@
     {
       "src": "/(.*)",
       "dest": "/api/app"
-    },
+    }
   ],
   "functions": {
     "api/app.py": {
