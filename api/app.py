@@ -30,4 +30,4 @@ def predict_iris_species():
     return iris_classifier.predict_iris_species(**request.json)
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=8080)
+    app.run(host="localhost", port=8000)
