@@ -19,8 +19,11 @@ def check_api_key():
         return Response("Invalid Api Key", 401)
 
 @app.route("/")
-def hello():
-    return {"answer": "Hello, World!"}
+def api_info():
+    return {
+        "/predict_iris_species ": "params: sepal_length, sepal_width, petal_length, petal_width",
+        "/": "endpoint infos"
+    }
 
 @app.route("/predict_iris_species")
 def predict_iris_species():
