@@ -13,11 +13,11 @@ FLASK_API_KEY = os.getenv("FLASK_API_KEY")
 app = Flask(__name__)
 
 
-"""@app.before_request
+@app.before_request
 def check_api_key():
-    request_api_key = request.headers.get("api-key")
+    request_api_key = flask_request.headers.get("api-key")
     if request_api_key != FLASK_API_KEY:
-        return Response("Invalid Api Key", 401)"""
+        return Response("Invalid Api Key", 401)
 
 @app.route("/")
 def api_info():
@@ -36,19 +36,16 @@ def another():
 @app.route("/predict_iris_species", methods=["POST"])
 def predict_iris_species():
     try:
-        #breakpoint()
         return iris_classifier.predict_iris_species(**flask_request.json)
-        #return flask_request.json
-        #return "hello"
     except Exception as e:
-        return f"An error occured: {str(e)}. " \
-               f"{e}, type of error: {type(e)}"
-    """return iris_classifier.predict_iris_species(
-        sepal_length=5.0,
-        sepal_width=5.0,
-        petal_length=5.0,
-        petal_width=5.0
-    )"""
+        return f"An error occured: {str(e)}."
 
-if __name__ == "__main__":
-    app.run(host="localhost", port=8000)
+@app.route("/predict_iris_species_get")
+def predict_iris_species_get():
+    try:
+        return iris_classifier.predict_iris_species(**flask_request.json)
+    except Exception as e:
+        return f"An error occured: {str(e)}."
+
+#if __name__ == "__main__":
+#    app.run(host="localhost", port=8000)
