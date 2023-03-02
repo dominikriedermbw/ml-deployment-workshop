@@ -37,7 +37,7 @@ def predict_iris_species():
     try:
         #breakpoint()
         #return iris_classifier.predict_iris_species(**request.json)
-        return request.json
+        return request.form
     except Exception as e:
         return f"An error occured: {str(e)}."
     """return iris_classifier.predict_iris_species(
