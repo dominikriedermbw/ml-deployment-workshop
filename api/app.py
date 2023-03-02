@@ -38,7 +38,8 @@ def predict_iris_species():
     try:
         #breakpoint()
         #return iris_classifier.predict_iris_species(**request.json)
-        return flask_request.get_json()
+        flask_request.json
+        return "hello"
     except Exception as e:
         return f"An error occured: {str(e)}. " \
                f"{e}, type of error: {type(e)}"
