@@ -1,6 +1,7 @@
 # save this as app.py
 import os
-from flask import Flask, Response, request
+from flask import Flask, Response
+from flask import request as flask_request
 
 import sys
 sys.path.append("..")
@@ -37,7 +38,7 @@ def predict_iris_species():
     try:
         #breakpoint()
         #return iris_classifier.predict_iris_species(**request.json)
-        return request.form
+        return flask_request.json
     except Exception as e:
         return f"An error occured: {str(e)}."
     """return iris_classifier.predict_iris_species(
