@@ -20,7 +20,10 @@ def check_api_key():
 
 @app.route("/")
 def api_info():
-    return {"/predict_iris_species": "params: sepal_length, sepal_width, petal_length, petal_width"}
+    return {
+        "/predict_iris_species": "params: sepal_length, sepal_width, petal_length, petal_width",
+        "/": "endpoint infos"
+    }
 
 @app.route("/predict_iris_species")
 def predict_iris_species():
