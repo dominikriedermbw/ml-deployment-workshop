@@ -11,5 +11,6 @@ def predict_iris_species(sepal_length, sepal_width, petal_length, petal_width) -
         [sepal_length, sepal_width, petal_length, petal_width],
     ]
 
+
     result = iris_classifier_session.run(None, {'input': to_predict})
     return result[0].tolist()
