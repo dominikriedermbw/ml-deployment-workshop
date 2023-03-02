@@ -37,8 +37,8 @@ def another():
 def predict_iris_species():
     try:
         #breakpoint()
-        #return iris_classifier.predict_iris_species(**request.json)
-        return flask_request.json
+        return iris_classifier.predict_iris_species(**flask_request.json)
+        #return flask_request.json
         #return "hello"
     except Exception as e:
         return f"An error occured: {str(e)}. " \
