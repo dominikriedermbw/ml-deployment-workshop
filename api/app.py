@@ -34,7 +34,10 @@ def another():
 
 @app.route("/predict_iris_species")
 def predict_iris_species():
-    return iris_classifier.predict_iris_species(**request.json)
+    try:
+        return iris_classifier.predict_iris_species(**request.json)
+    except Exception as e:
+        return f"An error occured: {str(e)}"
     """return iris_classifier.predict_iris_species(
         sepal_length=5.0,
         sepal_width=5.0,
