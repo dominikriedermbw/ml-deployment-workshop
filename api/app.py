@@ -47,5 +47,5 @@ def predict_iris_species_get():
     except Exception as e:
         return f"An error occured: {str(e)}."
 
-#if __name__ == "__main__":
-#    app.run(host="localhost", port=8000)
+if __name__ == "__main__":
+    app.run(host="localhost", port=8000)
