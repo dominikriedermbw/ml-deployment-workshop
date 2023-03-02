@@ -34,7 +34,13 @@ def another():
 
 @app.route("/predict_iris_species")
 def predict_iris_species():
-    return iris_classifier.predict_iris_species(**request.json)
+    #return iris_classifier.predict_iris_species(**request.json)
+    return iris_classifier.predict_iris_species(
+        sepal_length=5.0,
+        sepal_width=5.0,
+        petal_length=5.0,
+        petal_width=5.0
+    )
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8000)
