@@ -12,14 +12,21 @@ FLASK_API_KEY = os.getenv("FLASK_API_KEY")
 app = Flask(__name__)
 
 
-@app.before_request
+"""@app.before_request
 def check_api_key():
     request_api_key = request.headers.get("api-key")
     if request_api_key != FLASK_API_KEY:
-        return Response("Invalid Api Key", 401)
+        return Response("Invalid Api Key", 401)"""
 
 @app.route("/")
 def api_info():
+    return {
+        "/predict_iris_species ": "params: sepal_length, sepal_width, petal_length, petal_width",
+        "/": "endpoint infos"
+    }
+
+@app.route("/another")
+def another():
     return {
         "/predict_iris_species ": "params: sepal_length, sepal_width, petal_length, petal_width",
         "/": "endpoint infos"
