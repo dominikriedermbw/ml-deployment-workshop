@@ -40,7 +40,8 @@ def predict_iris_species():
         #return iris_classifier.predict_iris_species(**request.json)
         return flask_request.json
     except Exception as e:
-        return f"An error occured: {str(e)}."
+        return f"An error occured: {str(e)}. " \
+               f"{e}, type of error: {type(e)}"
     """return iris_classifier.predict_iris_species(
         sepal_length=5.0,
         sepal_width=5.0,
