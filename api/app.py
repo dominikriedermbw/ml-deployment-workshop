@@ -26,12 +26,6 @@ def api_info():
         "/": "endpoint infos"
     }
 
-@app.route("/another")
-def another():
-    return {
-        "/predict_iris_species ": "params: sepal_length, sepal_width, petal_length, petal_width",
-        "/": "endpoint infos"
-    }
 
 @app.route("/predict_iris_species", methods=["POST"])
 def predict_iris_species():
@@ -40,12 +34,6 @@ def predict_iris_species():
     except Exception as e:
         return f"An error occured: {str(e)}."
 
-@app.route("/predict_iris_species_get")
-def predict_iris_species_get():
-    try:
-        return iris_classifier.predict_iris_species(**flask_request.json)
-    except Exception as e:
-        return f"An error occured: {str(e)}."
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8000)
